@@ -1,0 +1,372 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f0f;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1rem;
+}
+
+/* Upload Area */
+.upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.drop-zone {
+    width: 100%;
+    border: 2px dashed #333;
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #1a1a1a;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+    border-color: #646cff;
+    background: #1a1a2e;
+}
+
+.drop-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.drop-zone p {
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: #666 !important;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: #1e1e2e;
+    border-radius: 10px;
+    border: 1px solid #333;
+    width: 100%;
+}
+
+.file-info #file-name {
+    flex: 1;
+    font-weight: 500;
+    color: #fff;
+}
+
+.file-info #file-size {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.btn-remove:hover {
+    background: #333;
+    color: #ff6b6b;
+}
+
+.btn-primary {
+    padding: 14px 40px;
+    background: #646cff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #535bf2;
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    padding: 8px 16px;
+    background: #2a2a3a;
+    color: #ccc;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Progress */
+.progress-container {
+    width: 100%;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #222;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #646cff, #9b59b6);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.3s;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.progress-text {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 4px;
+}
+
+.tab {
+    flex: 1;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.tab.active {
+    background: #646cff;
+    color: #fff;
+}
+
+.tab:hover:not(.active) {
+    color: #ccc;
+    background: #252525;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.result-header h2 {
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.badge {
+    padding: 4px 12px;
+    background: #2a2a3a;
+    border: 1px solid #444;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+/* Transcription */
+.transcription-text {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 24px;
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 24px;
+    border: 1px solid #252525;
+    white-space: pre-wrap;
+}
+
+.segments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.segment {
+    display: flex;
+    gap: 16px;
+    padding: 12px 16px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    border: 1px solid #222;
+    align-items: flex-start;
+}
+
+.segment-time {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #646cff;
+    white-space: nowrap;
+    padding-top: 2px;
+    min-width: 100px;
+}
+
+.segment-text {
+    color: #ccc;
+    line-height: 1.5;
+}
+
+/* Slides */
+.slides-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.slide-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #252525;
+}
+
+.slide-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.slide-number {
+    width: 32px;
+    height: 32px;
+    background: #646cff;
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.slide-timestamp {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.slide-analysis {
+    color: #ccc;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+}
+
+.slide-analysis strong,
+.slide-analysis b {
+    color: #fff;
+}
+
+/* Utility */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 16px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .drop-zone {
+        padding: 40px 20px;
+    }
+
+    .segment {
+        flex-direction: column;
+        gap: 4px;
+    }
+}

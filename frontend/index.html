@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Transcriber + Slide Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Video Transcriber</h1>
+            <p class="subtitle">Upload de vídeo para transcrição e análise de slides</p>
+        </header>
+
+        <div id="upload-section" class="upload-area">
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-icon">🎬</div>
+                <p>Arraste um vídeo aqui ou clique para selecionar</p>
+                <p class="hint">Formatos aceitos: MP4, MOV, AVI, MKV — Máx. 100MB</p>
+                <input type="file" id="file-input" accept="video/*" hidden>
+            </div>
+            <div id="file-info" class="file-info hidden">
+                <span id="file-name"></span>
+                <span id="file-size"></span>
+                <button id="remove-file" class="btn-remove">✕</button>
+            </div>
+            <button id="upload-btn" class="btn-primary hidden" disabled>Processar Vídeo</button>
+        </div>
+
+        <div id="progress-section" class="hidden">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p id="progress-text" class="progress-text">Enviando vídeo...</p>
+            </div>
+        </div>
+
+        <div id="results-section" class="hidden">
+            <div class="tabs">
+                <button class="tab active" data-tab="transcription">Transcrição</button>
+                <button class="tab" data-tab="slides">Análise de Slides</button>
+            </div>
+
+            <div id="tab-transcription" class="tab-content active">
+                <div class="result-header">
+                    <h2>Transcrição</h2>
+                    <span id="language-badge" class="badge"></span>
+                    <button id="copy-transcription" class="btn-secondary">Copiar</button>
+                </div>
+                <div id="transcription-text" class="transcription-text"></div>
+                <div id="segments-list" class="segments-list"></div>
+            </div>
+
+            <div id="tab-slides" class="tab-content">
+                <h2>Análise de Slides</h2>
+                <div id="slides-list" class="slides-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
